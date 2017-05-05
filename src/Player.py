@@ -54,7 +54,7 @@ class Player():
     def check(self):
         for lst in self.might_have:
             for item in lst:
-                if item in self.doesnt_have:
+                if item in self.doesnt_have or item in self.others_have:
                     lst.remove(item)
             if len(lst) == 1:
                 self.has.append(lst[0])
