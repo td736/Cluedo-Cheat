@@ -39,7 +39,7 @@ class Player():
     def show(self, rumour):
         count = 0
         while count < len(rumour):
-            if rumour[count] in self.doesnt_have:
+            if rumour[count] in self.doesnt_have or rumour[count] in self.others_have:
                 rumour.pop(count)
             else:
                 count += 1
