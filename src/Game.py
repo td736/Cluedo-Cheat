@@ -16,6 +16,9 @@ class Game():
                          'observatory','theatre',
                          'living room','spa','guest house']
         self.playerList = []
+        self.own_cards = []
+        ## move below to main
+        #self.add_player(int(input("Number of players to be added: ")))
 
 
     def add_player(self, number):
@@ -37,4 +40,27 @@ class Game():
             player5 = Player(input("Name of player 5: "))
             self.playerList.append(player5)
 
-        
+
+    def confirm_own_cards(self, number): ## add to all others_have lists
+
+        for card in range(number):
+            cardValue = input("Card value: ")
+            self.own_cards.append(cardValue)
+            self.remaining.remove(cardValue)
+
+
+    def new_round(self, rumour): ## rumour = list of 3
+        for player in self.playerList:
+            player.get_name()
+            action = input("Show, skip or unknown (sh, sk, u): ")
+
+            if action == 'sh':
+                player.show(rumour)
+                
+            elif action == 'sk':
+                player.skip(rumour)
+                
+            elif action == 'u':
+                continue
+            
+
