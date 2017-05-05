@@ -8,7 +8,7 @@ class Game():
     def __init__(self):
         
         self.confirmed = []
-        self.remaining = ['mustard','plum','green','peacock',
+        self.remaining =  ['mustard','plum','green','peacock',
                          'scarlet','white','knife','candlestick',
                          'pistol','poison','trophy','rope',
                          'bat','axe','dumbbell','hall',
@@ -17,8 +17,7 @@ class Game():
                          'living room','spa','guest house']
         self.playerList = []
         self.own_cards = []
-        ## move below to main
-        #self.add_player(int(input("Number of players to be added: ")))
+
 
 
     def add_player(self, number):
@@ -41,7 +40,7 @@ class Game():
             self.playerList.append(player5)
 
 
-    def confirm_own_cards(self, number): ## add to all others_have lists
+    def confirm_own_cards(self, number): 
 
         for card in range(number):
             cardValue = input("Card value: ")
@@ -62,5 +61,13 @@ class Game():
                 
             elif action == 'u':
                 continue
+
+            
+        for player in self.playerList:
+            for item in player.has:
+                if item not in self.confirmed:
+                    self.confirmed.append(item)
+                if item in self.remaining:
+                    self.remaining.remove(item)
             
 
