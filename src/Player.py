@@ -10,6 +10,7 @@ class Player():
         self.name = name
         self.doesnt_have = []
         self.might_have = []
+        self.others_have = []
         self.has = []
 
 
